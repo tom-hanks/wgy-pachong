@@ -1,0 +1,36 @@
+<html>
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<head>
+<body>
+<input type="text" id="cc" ><button>查询</button>
+<span id="ddd"></span>
+<div id='ha'>
+
+</div>
+</body>
+</head>
+</html>
+<script>
+$(function(){
+  $('button').on('click',function(){
+    var dd=$('#cc').val();
+    $.ajax({
+            url: "http://192.168.1.169:3000/homeapi/home",
+            type: "GET",
+            async:false,
+            data: {'type':'zhongtong','postid':dd},
+            dataType:"JSON",
+            success: function (data) {
+              alert(data.com)
+              // var msg=data;
+              // alert(msg)
+              // $.each(msg,function(index, n){
+              //  alert(msg.data)
+              //   //  str=str+data[index].nu+","+data[index].time+",";
+              // });
+            }
+        });
+    })
+
+});
+</script>
